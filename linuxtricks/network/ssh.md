@@ -17,6 +17,21 @@
 
 `ssh -i "$HOME/.ssh/llmgrouppty_productionserver.pem" ubuntu@ec2-54-206-58-182.ap-southeast-2.compute.amazonaws.com`
 
+## or add the common machine to the config file ~/.ssh/config
+
+```
+Host github-project1
+    User git
+    HostName github.com
+    IdentityFile ~/.ssh/github.project1.key
+Host github-org
+    User git
+    HostName github.com
+    IdentityFile ~/.ssh/github.org.key
+Host github.com
+    User git
+    IdentityFile ~/.ssh/github.key
+```
 ##create a virtual channel
 
 `ssh -fN -i "$HOME/.ssh/llmgrouppty_productionserver.pem" -L 27018:localhost:27017 ubuntu@ec2-54-206-58-182.ap-southeast-2.compute.amazonaws.com`

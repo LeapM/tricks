@@ -8,7 +8,7 @@ please refer to [linux tutorial](http://www.yolinux.com/TUTORIALS/LinuxTutorialA
 `fdisk /dev/***`
 
 ### format disk
-`sudo mkfs -t ext4 -L disk2 /dev/sdb1
+`sudo mkfs -t ext4 -L disk2 /dev/sdb1`
 
 ### mount 
-please refer to [fstab mount](fstab and amount.md)
+please refer to fstab and amount.md
