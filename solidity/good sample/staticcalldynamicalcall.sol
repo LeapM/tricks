@@ -41,6 +41,12 @@ contract Sender {
         Receiver(nonRec).onTokenReceived(a, u);
     }
     function test6() {
+        nonRec.call(bytes4(sha3("onTokenReceived(address,uint256)")), a, u);
+    } 
+    
+    function test7() {
+        //has to pass a valid address, it will return true if the address is random
         require(nonRec.call(bytes4(sha3("onTokenReceived(address,uint256)")), a, u));
     } 
+    
 }

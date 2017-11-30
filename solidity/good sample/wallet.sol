@@ -37,7 +37,6 @@ contract BasicMultiOwnerVault {
     }
     
     modifier recordAction() {
-      nly
         lastUpdated = now;
         _;
     }
