@@ -795,7 +795,7 @@ contract KittyBreeding is KittyOwnership {
         // cooldowns array. We could check the array size dynamically, but hard-coding
         // this as a constant saves gas. Yay, Solidity!
         if (_kitten.cooldownIndex < 13) {
-            _kitten.cooldownIndex += 1;
+            _kitten.ooldownIndex += 1;
         }
     }
 
