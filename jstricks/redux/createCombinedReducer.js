@@ -1,3 +1,5 @@
+//please refer to https://redux.js.org/docs/basics/Reducers.html
+
 function visibilityFilter(state = 'SHOW_ALL', action) {
   if (action.type === 'SET_VISIBILITY_FILTER') {
     return action.filter
@@ -10,6 +12,19 @@ function todos(state = [], action) {
   switch (action.type) {
     case 'ADD_TODO':
       return state.concat([{ text: action.text, completed: false }])
+      //ES6 way
+      return [...state,{text:action.text,completed:false}];
+    case 'COMPLETE_TODO':
+    return state.map((todo, index) => {
+      if (index === action.index) {
+        return Object.assign({}, todo, {
+          completed: true
+        });
+        //ES6 way
+        return {...todo, ...{completed:true}};
+      }
+      return todo
+    })
     case 'TOGGLE_TODO':
       return state.map(
         (todo, index) =>
@@ -17,6 +32,7 @@ function todos(state = [], action) {
             ? { text: todo.text, completed: !todo.completed }
             : todo
       )
+
     default:
       return state
   }
@@ -29,3 +45,8 @@ function todoApp(state = {}, action) {
     visibilityFilter: visibilityFilter(state.visibilityFilter, action)
   }
 }
+
+// good pattern
+import { combineReducers } from 'redux'
+import * as reducers from './reducers'
+const todoApp = combineReducers(reducers)
