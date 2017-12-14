@@ -25,3 +25,9 @@ var obj2 = { foo: 'baz', y: 13 };
 var clonedObj = { ...obj1 };
 // Object { foo: "bar", x: 42 }
 var mergedObj = { ...obj1, ...obj2 };
+
+
+var newState={ ...state, ...{
+  //ES6 computed property syntax
+  [action.subreddit]: posts(state[action.subreddit], action)
+}};
