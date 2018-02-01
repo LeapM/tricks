@@ -25,6 +25,14 @@ var obj2 = { foo: 'baz', y: 13 };
 var clonedObj = { ...obj1 };
 // Object { foo: "bar", x: 42 }
 var mergedObj = { ...obj1, ...obj2 };
+var newObject = {...obj1, prop1:"prop1"};
+
+//much better way than Object.assign
+return getAddedIds(state.cart).map(id => ({
+  ...getProduct(state.products, id),
+  quantity: getQuantity(state.cart, id)
+}))
+
 
 
 var newState={ ...state, ...{
