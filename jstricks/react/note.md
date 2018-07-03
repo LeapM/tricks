@@ -36,26 +36,40 @@ Context consumer need to implement static property contextTypes
 [Context Document Link](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
 ## Component Life Cycle
+
+![picture](https://cdn-images-1.medium.com/max/1600/1*k2gH2PzBBmKB9Ov5qrPoqw.png)
 mount
 1. `constructor`
 2. `componentWillMount`
+
+cannnot call setState 
 3. `render`
 4. `componentDidMount`
 
 update
-1. `comonentWillReceiveProps`
+1. `comonentWillReceiveProps(nextProps)` 
+
+here we have access to both the nextProps and this.props. This is not called on initial render cause of no previous props to compare
+
+can call setState
 2. `shouldComponentUpdate`
   if this return false, the following steps won't be called
 
-3. `componentWillUpdate`
+3. `componentWillUpdate(nextProps, nextState)` 
+
+This is to change if the component will update. will always return a boolean. it is an awesome place to improve performance to avoid necessary re rending
   cannot call setState here
 
 4. `render`
 5. `componentDidUpdate`
 
+we do the same thing as componnentDidMount
+
 unmount
 
 1. ` componentWillUnmount`
+
+remove the event listener and other house keeping job
 
 
 ---
