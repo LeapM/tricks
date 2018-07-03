@@ -37,17 +37,19 @@ Context consumer need to implement static property contextTypes
 
 ## Component Life Cycle
 
-![picture](https://cdn-images-1.medium.com/max/1600/1*k2gH2PzBBmKB9Ov5qrPoqw.png)
+![oldlifecyclepicture](https://cdn-images-1.medium.com/max/1600/1*k2gH2PzBBmKB9Ov5qrPoqw.png)
+
+![newlifecyclpicture](https://cdn-images-1.medium.com/max/1600/1*4OYhCjUQQtK0tR0SDeA9GA.jpeg)
 mount
 1. `constructor`
-2. `componentWillMount`
+2. `componentWillMount` (will r**removed** from react17)
 
 cannnot call setState 
 3. `render`
 4. `componentDidMount`
 
 update
-1. `comonentWillReceiveProps(nextProps)` 
+1. `comonentWillReceiveProps(nextProps)` replaced by `getDerivedStateFromProps`
 
 here we have access to both the nextProps and this.props. This is not called on initial render cause of no previous props to compare
 
@@ -55,7 +57,7 @@ can call setState
 2. `shouldComponentUpdate`
   if this return false, the following steps won't be called
 
-3. `componentWillUpdate(nextProps, nextState)` 
+3. `componentWillUpdate(nextProps, nextState)` (will **removed** from react17)
 
 This is to change if the component will update. will always return a boolean. it is an awesome place to improve performance to avoid necessary re rending
   cannot call setState here
