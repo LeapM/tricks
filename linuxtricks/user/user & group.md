@@ -15,3 +15,5 @@ change password
 /etc/passwd
 
 ##  
+
+`sudo -i` as persistent sudo user
