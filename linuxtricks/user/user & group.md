@@ -14,6 +14,9 @@ change password
 
 /etc/passwd
 
+`groups` 
+show the current groups an user belong
+
 ##  
 
 `sudo -i` as persistent sudo user
