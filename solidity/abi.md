@@ -43,6 +43,33 @@ dynamic types are encoded at a **seperately allocated location after the current
 
 ### len(a) is the number of bytes i a binray string
 
+### formular
+#### general formular
+(T1,.......Tk) for K>=0 and any types T1,.......,Tk
+```enc(x)= head(x(1))... head(x(k)) tail(x(1))...tail(x(k))```
+#### static type
+for static type
+```head(x(i)) = enc(x(i)) and tail(X(i)) = ""```
+#### for dynamic type
+Its value is the offset of the beginning of tail(X(i)) relative to th start of enc(X)
+```head(X(i)) = enc(len(head(X(1)) ... head(X(k)) tail(X(1)) ... tail(X(i-1)) ))```
+```tail = enc(X(i)```
+#### enc in detail
+##### T[k] for any T and k
+enc(x) = enc((X[0],...X[k-1])
+##### T[] where X has k elemetns
+enc(x)=enc(k) enc(X[0],...[X[k-1]])
+##### bytes
+enc(x) = enc(k)pad_right(x)
+##### string enc(X) = enc(enc_utf(X))
+##### uint<M>: big endian ecnoding(x)
+#####  address = unint160
+##### int<M> padding 0Xff for negative x 0X00 for positive
+##### bool == uint8
+##### fixed<M>x<N> enc(x * 10 ** N)
+##### ufixed<M>x<N> same as fixe but interpreted as a int126
+
+
 
 
 
